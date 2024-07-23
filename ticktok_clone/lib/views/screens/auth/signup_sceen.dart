@@ -1,8 +1,11 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ticktok_clone/constants/constants.dart';
+import 'package:ticktok_clone/views/screens/auth/login_screen.dart';
 import 'package:ticktok_clone/views/widgets/text_input_fields.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -111,7 +114,10 @@ class SignupScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [ 
                 Text("Already have an Account!",),
-                TextButton(onPressed: (){}, child: Text("Login?"))
+                TextButton(onPressed: (){
+                  Get.off(LoginScreen());
+
+                }, child: Text("Login?"))
               ],
             )
             

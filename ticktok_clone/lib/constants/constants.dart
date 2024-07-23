@@ -8,11 +8,21 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:ticktok_clone/controllers/auth/auth_conttoler.dart';
+import 'package:ticktok_clone/views/screens/add_post_screen.dart';
 
 const backgroundColor = Colors.black;
 var buttonColor = Colors.red[400];
 const borderColor = Colors.grey;
 
+//pages
+var pages=[
+  
+  Text("Home Screen"),
+  Text("Search Screen"),
+  AddPostScreen(),
+  Text("Message Screen"),
+  Text("Profile Screen"),
+];
 
 //Firebase constants objects 
 

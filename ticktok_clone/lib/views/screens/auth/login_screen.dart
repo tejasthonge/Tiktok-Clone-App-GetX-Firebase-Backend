@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ticktok_clone/constants/constants.dart';
 import 'package:ticktok_clone/views/screens/auth/signup_sceen.dart';
 import 'package:ticktok_clone/views/widgets/text_input_fields.dart';
@@ -56,9 +57,7 @@ class LoginScreen extends StatelessWidget {
             InkWell(
 
               enableFeedback: false,  //due to that background color when pressing the button is removed
-              onTap: (){
-
-              },
+              onTap: ()=>authConttoler.loginUser(email: _emailTEC.text.trim(), password: _passwordTEC.text.trim()),
               child: Container( 
                 alignment: Alignment.center,
                 width: MediaQuery.of(context).size.width -40,

@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ticktok_clone/constants/constants.dart';
 import 'package:ticktok_clone/views/widgets/text_input_fields.dart';
 
@@ -40,7 +41,9 @@ class SignupScreen extends StatelessWidget {
               children: [ 
                 CircleAvatar( 
                   radius: 65,
-                  backgroundImage: NetworkImage( 
+                  backgroundImage:
+                    
+                   NetworkImage( 
                     // 'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png'
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQNvWDvQb_rCtRL-p_w329CtzHmfzfWP0FIw&s"
                   ),
@@ -48,7 +51,7 @@ class SignupScreen extends StatelessWidget {
                 Positioned( 
                   bottom: -5,
                   right: -4,
-                  child: IconButton(onPressed: (){}, icon: Icon(Icons.add_a_photo,color:Colors.grey)),
+                  child: IconButton(onPressed:()=>authConttoler.pickImage(source: ImageSource.camera), icon: Icon(Icons.add_a_photo,color:Colors.grey)),
                 )
               ],
             ),
@@ -85,7 +88,7 @@ class SignupScreen extends StatelessWidget {
 
               enableFeedback: false,  //due to that background color when pressing the button is removed
               onTap: (){
-
+                authConttoler.registerUser(username: _userNameTEC.text.trim(), password: _passwordTEC.text.trim(), email: _emailTEC.text.trim(),image: authConttoler.pickedImage) ;
               },
               child: Container( 
                 alignment: Alignment.center,
@@ -95,7 +98,7 @@ class SignupScreen extends StatelessWidget {
                   color: buttonColor,
                   borderRadius: BorderRadius.circular(5),
                 ), 
-                child: Text("Registor",
+                child: Text("Sign Up",
                   style: TextStyle( 
                     fontSize: 20,
                     fontWeight: FontWeight.w700

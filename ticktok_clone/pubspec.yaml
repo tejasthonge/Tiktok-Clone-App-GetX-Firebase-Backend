@@ -38,9 +38,12 @@ dependencies:
   get: ^4.6.6
   firebase_core: ^3.2.0
   firebase_auth: ^5.1.2
-  cloud_firestore: ^5.1.0
-  firebase_storage: ^12.1.1
-  image_picker: ^1.1.2
+  cloud_firestore: ^5.1.0 
+  firebase_storage: ^12.1.1  #store the files in storage
+  image_picker: ^1.1.2  #this is for peack an image
+  video_player: ^2.9.1   #this if for palay the video 
+  video_compress: ^3.1.2
+  flutter_easyloading: ^3.0.5
 
 dev_dependencies:
   flutter_test:

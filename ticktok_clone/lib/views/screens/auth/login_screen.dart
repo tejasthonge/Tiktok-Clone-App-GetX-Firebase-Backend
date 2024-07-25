@@ -14,80 +14,82 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-
-            Text("TickTok Clone",
-              style: TextStyle( 
-                color: buttonColor,
-                fontSize: 35,
-                fontWeight: FontWeight.w900
-              ),
-            ),
-            const Text(
-              "Login",
-              style: TextStyle( 
-                fontSize: 25,
-                fontWeight: FontWeight.w900
-              )
-            ),
-            const SizedBox(height: 40,),
-            Container(
-              
-              // height: 40,
-              width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-              child: TextInputField(controller:_emailTEC  ,lebelText: "Email",prefixIconData: Icons.email,),
-
-            ),
-            Container(
-              
-              // height: 40,
-              width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-              child: TextInputField(controller:_passwordTEC  ,isObscure: true,lebelText: "Password",prefixIconData: Icons.lock,),
-
-            ),
-            const SizedBox( 
-              height: 30,
-            ),
-            InkWell(
-
-              enableFeedback: false,  //due to that background color when pressing the button is removed
-              onTap: ()=>authConttoler.loginUser(email: _emailTEC.text.trim(), password: _passwordTEC.text.trim()),
-              child: Container( 
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width -40,
-                height: 50,
-                decoration: BoxDecoration( 
+      body: SingleChildScrollView(
+        child: Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+        
+              Text("TickTok Clone",
+                style: TextStyle( 
                   color: buttonColor,
-                  borderRadius: BorderRadius.circular(5),
-                ), 
-                child: Text("Login",
-                  style: TextStyle( 
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700
+                  fontSize: 35,
+                  fontWeight: FontWeight.w900
+                ),
+              ),
+              const Text(
+                "Login",
+                style: TextStyle( 
+                  fontSize: 25,
+                  fontWeight: FontWeight.w900
+                )
+              ),
+              const SizedBox(height: 40,),
+              Container(
+                
+                // height: 40,
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                child: TextInputField(controller:_emailTEC  ,lebelText: "Email",prefixIconData: Icons.email,),
+        
+              ),
+              Container(
+                
+                // height: 40,
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                child: TextInputField(controller:_passwordTEC  ,isObscure: true,lebelText: "Password",prefixIconData: Icons.lock,),
+        
+              ),
+              const SizedBox( 
+                height: 30,
+              ),
+              InkWell(
+        
+                enableFeedback: false,  //due to that background color when pressing the button is removed
+                onTap: ()=>authConttoler.loginUser(email: _emailTEC.text.trim(), password: _passwordTEC.text.trim()),
+                child: Container( 
+                  alignment: Alignment.center,
+                  width: MediaQuery.of(context).size.width -40,
+                  height: 50,
+                  decoration: BoxDecoration( 
+                    color: buttonColor,
+                    borderRadius: BorderRadius.circular(5),
+                  ), 
+                  child: const Text("Login",
+                    style: TextStyle( 
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 15,),
-            Row( 
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [ 
-                Text("Dont\'t Have an Account?",),
-                TextButton(onPressed: (){
-                 
-                  Get.off(SignupScreen());
-                }, child: Text("Create Account "))
-              ],
-            )
-            
-
-          ],
+              const SizedBox(height: 15,),
+              Row( 
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [ 
+                  const Text("Dont\'t Have an Account?",),
+                  TextButton(onPressed: (){
+                   
+                    Get.off(SignupScreen());
+                  }, child: const Text("Create Account "))
+                ],
+              )
+              
+        
+            ],
+          ),
         ),
       ),
     );

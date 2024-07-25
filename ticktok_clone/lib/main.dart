@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:ticktok_clone/constants/constants.dart';
 import 'package:ticktok_clone/controllers/auth/auth_conttoler.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       scaffoldBackgroundColor: backgroundColor
      ),
       home: LoginScreen(),
+    builder: EasyLoading.init()
     );
   }
 }

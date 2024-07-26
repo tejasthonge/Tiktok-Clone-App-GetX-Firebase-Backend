@@ -68,7 +68,7 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
                 const SizedBox( height: 10,),
                 ElevatedButton(onPressed:  (){
 
-                  _uploadVideoController.uploadVideoInFirebase(songName: _songNameTEC.text.trim(), caption: _captionTEC.text.trim(), videoPath: widget.videoPath);
+                  _uploadVideoController.uploadVideoInFireabase(songName: _songNameTEC.text.trim(), caption: _captionTEC.text.trim(), videoPath: widget.videoPath);
                 }, child: Text("Share"))
 
 

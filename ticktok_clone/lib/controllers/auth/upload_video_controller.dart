@@ -10,25 +10,36 @@ import 'package:ticktok_clone/models/video_model.dart';
 import 'package:video_compress/video_compress.dart';
 
 class UploadVideoController extends GetxController {
-  _comprieVideo({required String path}) async {
-    final compredVideo = await VideoCompress.compressVideo(path,
-        quality: VideoQuality.MediumQuality);
-    return compredVideo!.file;
+    Future<File> _compressVideo({required String path}) async {
+    final MediaInfo? compressedVideo = await VideoCompress.compressVideo(
+      path,
+      quality: VideoQuality.LowQuality,
+    );
+    if (compressedVideo == null || compressedVideo.file == null) {
+      throw Exception("Failed to compress video");
+    }
+    return compressedVideo.file!;
   }
 
-  _uploadVideosToStorage(
-      {required String id, required String videoPath}) async {
+  Future<String> _uploadVideosToStorage({
+    required String id,
+    required String videoPath,
+  }) async {
     Reference ref = firestoreStorage.ref().child("videos").child(id);
-    // UploadTask uploadTask = ref.putFile(await _comprieVideo(path: videoPath));
-    UploadTask uploadTask = ref.putFile(File(videoPath));
+
+    // Ensure the compressed video file is obtained
+    File compressedVideoFile = await _compressVideo(path: videoPath);
+    UploadTask uploadTask = ref.putFile(compressedVideoFile);
 
     TaskSnapshot taskSnapshot = await uploadTask;
     String videoUrl = await taskSnapshot.ref.getDownloadURL();
     return videoUrl;
   }
 
+
+
   _getThubnail({required String path}) async {
-    final thumbnail = await VideoCompress.getByteThumbnail(path);
+    final thumbnail = await VideoCompress.getFileThumbnail(path);
     return thumbnail;
   }
 
@@ -56,7 +67,7 @@ class UploadVideoController extends GetxController {
       //geting the videos id
       int len = allDocs.docs.length;
       String videoId = "video $len";
-      //uploading video to firebase storage and getting its url
+      // uploading video to firebase storage and getting its url
       String videoUlr = await _uploadVideosToStorage(
         id: videoId,
         videoPath: videoPath,

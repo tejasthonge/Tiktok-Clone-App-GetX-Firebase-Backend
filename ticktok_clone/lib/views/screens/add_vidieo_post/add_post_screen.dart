@@ -41,6 +41,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
           SimpleDialogOption( 
             onPressed: (){
               pickVideo(source: ImageSource.gallery, context: context);
+              Navigator.of(context).pop();
+
             },
             child:const Row( 
               children: [ 
@@ -53,7 +55,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
            SimpleDialogOption( 
             onPressed: (){
               pickVideo(source: ImageSource.camera, context: context);
-
+              Navigator.of(context).pop();
             },
             child:const Row( 
               children: [ 

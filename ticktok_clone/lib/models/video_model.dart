@@ -61,7 +61,7 @@ class VideoModel {
       thumbnailUrl: data['thumbnailUrl'] as String,
       songName: data['songName'] as String,
       caption: data['caption'] as String,
-      likes: data['likes'] as List<String>,
+      likes: data['likes'] as List<dynamic>,
       commentCount: data['commentCount'] as int,
       shareCount: data['shareCount'] as int,
     );

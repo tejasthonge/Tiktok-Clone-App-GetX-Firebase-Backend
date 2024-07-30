@@ -44,6 +44,7 @@ dependencies:
   video_player: ^2.9.1   #this if for palay the video 
   video_compress: ^3.1.2
   flutter_easyloading: ^3.0.5
+  timeago: ^3.7.0
 
 dev_dependencies:
   flutter_test:

@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:ticktok_clone/controllers/videos/comment_controller.dart';
 import 'package:ticktok_clone/models/comment_modal.dart';
 import 'package:ticktok_clone/models/user_model.dart';
-
+import 'package:timeago/timeago.dart' as tago;
 class CommentScreen extends StatefulWidget {
   final String id;
   const CommentScreen({super.key, required this.id});
@@ -88,7 +88,7 @@ class _CommentScreenState extends State<CommentScreen> {
                     
                           children: [ 
                             Text(
-                              "date",
+                              tago.format(commentModel.datePublished),
                               style: TextStyle( 
                                 fontSize: 12,
                                 color: Colors.white,

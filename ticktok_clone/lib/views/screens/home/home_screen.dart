@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     InkWell(
                                       onTap: () {
                                         Get.to(
-                                          CommentScreen()
+                                          CommentScreen(id: data.id,)
                                         );
                                       },
                                       child: Icon(

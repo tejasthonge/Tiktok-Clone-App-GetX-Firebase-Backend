@@ -159,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Icon(
                                         Icons.favorite,
                                         color: 
-                                        data.likes.contains(authConttoler.user.uid)?
+                                        data.likes.contains(authConttoller.user.uid)?
                                         Colors.red: 
                                         Colors.white
                                         ,

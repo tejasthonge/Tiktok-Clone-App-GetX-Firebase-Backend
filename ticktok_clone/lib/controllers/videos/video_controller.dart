@@ -31,7 +31,7 @@ class VideoController extends GetxController{
   likeVideo({required String id})async{
 
     DocumentSnapshot snapshot =  await firestore.collection("videos").doc(id).get();
-    var uId = authConttoler.user.uid;
+    var uId = authConttoller.user.uid;
 
     if((snapshot.data()! as dynamic)["likes"].contains(uId)) {
       await firestore.collection("videos").doc(id).update(

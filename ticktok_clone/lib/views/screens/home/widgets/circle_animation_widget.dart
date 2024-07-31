@@ -25,8 +25,8 @@ class _CircularAnimetionWidgetState extends State<CircularAnimetionWidget>
   @override
   void dispose() {
     // TODO: implement dispose
-    super.dispose();
     _animationController.dispose();
+    super.dispose();
   }
 
   @override

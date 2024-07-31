@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-        
+              const SizedBox(height: 200,),
               Text("TickTok Clone",
                 style: TextStyle( 
                   color: buttonColor,
@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
               InkWell(
         
                 enableFeedback: false,  //due to that background color when pressing the button is removed
-                onTap: ()=>authConttoler.loginUser(email: _emailTEC.text.trim(), password: _passwordTEC.text.trim()),
+                onTap: ()=>authConttoller.loginUser(email: _emailTEC.text.trim(), password: _passwordTEC.text.trim()),
                 child: Container( 
                   alignment: Alignment.center,
                   width: MediaQuery.of(context).size.width -40,

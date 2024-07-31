@@ -15,7 +15,7 @@ class AuthController extends GetxController {
 
   late Rx<User?> _user;
 
-  late Rx<File?> _pickedImage;
+  late Rx<File?> _pickedImage = Rx<File?>(null);
   File? get pickedImage => _pickedImage.value;
   User get user => _user.value!;
 
@@ -25,7 +25,7 @@ class AuthController extends GetxController {
 
     super
         .onReady(); //this is frem fram of oninit like || we are setted the in main file as the app initialization completed we intial AucthConllore so onReady method allways call at the oping the app
-
+    
     _user = Rx<User?>(auth.currentUser); //seting the current user value
     _user.bindStream(auth
         .authStateChanges()); //it listen state changes to the current user and bind to user strem so the value continues keeping the updeting
@@ -114,5 +114,8 @@ class AuthController extends GetxController {
     } on FirebaseAuthException catch (e) {
       Get.snackbar(e.code, "Try again to login ");
     }
+  }
+   void signOut() async {
+    await auth.signOut();
   }
 }

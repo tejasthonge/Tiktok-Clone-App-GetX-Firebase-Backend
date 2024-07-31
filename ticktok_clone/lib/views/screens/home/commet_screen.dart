@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:ticktok_clone/constants/constants.dart';
 import 'package:ticktok_clone/controllers/videos/comment_controller.dart';
 import 'package:ticktok_clone/models/comment_modal.dart';
 import 'package:ticktok_clone/models/user_model.dart';
@@ -107,9 +108,21 @@ class _CommentScreenState extends State<CommentScreen> {
                           ],
                         ),
                         trailing: InkWell(
-                          onTap: (){},
-                          child: Icon(Icons.favorite,
-                            color: Colors.red,
+                          onTap: (){
+                            _commentController.likeComment(commentModel.id);
+                          },
+                          child: 
+                              commentModel.likes.contains(auth.currentUser!.uid)?
+                          Icon(Icons.favorite,
+                            color:
+                             Colors.red
+                             ,
+                          
+                          ):
+                          Icon(Icons.favorite_border,
+                            color:
+                             Colors.grey
+                             ,
                           
                           )),
                       );
